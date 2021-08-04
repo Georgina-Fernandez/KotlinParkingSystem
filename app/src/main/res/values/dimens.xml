@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_main_activity_title">35sp</dimen>
+    <dimen name="margin_top_main_activity_title">40dp</dimen>
+    <dimen name="parking_size_button_marginStart_marginEnd">80dp</dimen>
+    <dimen name="parking_size_button_marginTop">80dp</dimen>
+</resources>
