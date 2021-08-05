@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ParkingSystem</string>
+    <string name="title_main">Parking System</string>
+    <string name="txt_main_activity_parking_size_button_label">Configure parking size</string>
 </resources>

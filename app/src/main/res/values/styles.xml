@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TitleMainActivityStyle">
+        <item name="android:textSize">@dimen/size_main_activity_title</item>
+        <item name="android:fontFamily">sans-serif-bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_main_activity_title</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/yellow_main_text</item>
+    </style>
+    <style name="ConfigureParkingSizeButtonMainActivityStyle">
+        <item name="android:backgroundTint">@color/orange_parking_size_button_background</item>
+        <item name="android:textColor">@color/dark_parking_size_button_text</item>
+    </style>
+</resources>
