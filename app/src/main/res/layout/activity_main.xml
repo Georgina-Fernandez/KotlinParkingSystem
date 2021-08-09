@@ -18,12 +18,11 @@
     <Button
         android:id="@+id/parking_size_button"
         style="@style/ConfigureParkingSizeButtonMainActivityStyle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/txt_main_activity_parking_size_button_label"
-        android:layout_marginEnd="@dimen/parking_size_button_marginStart_marginEnd"
-        android:layout_marginStart="@dimen/parking_size_button_marginStart_marginEnd"
         android:layout_marginTop="@dimen/parking_size_button_marginTop"
+        android:text="@string/text_main_activity_parking_size_button_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_main_activity" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
