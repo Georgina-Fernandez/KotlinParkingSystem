@@ -3,4 +3,8 @@
     <string name="title_main">Parking System</string>
     <string name="text_main_activity_parking_size_button_label">Configure parking size</string>
     <string name="text_parking_size_toast">Total of parking lots: %1$d</string>
+    <string name="toast_parking_dialog_error_input">Please, enter a valid value</string>
+    <string name="text_parking_size_dialog">Please enter a number between 1 and %1$d</string>
+    <string name="button_parking_size_dialog_ok">OK</string>
+    <string name="button_parking_size_dialog_cancel">CANCEL</string>
 </resources>

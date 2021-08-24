@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="size_main_activity_title">35sp</dimen>
-    <dimen name="margin_top_main_activity_title">40dp</dimen>
-    <dimen name="parking_size_button_marginTop">40dp</dimen>
+    <dimen name="size_dialog_parking_size_text">20sp</dimen>
+    <dimen name="margin_top_main_activity_title">20dp</dimen>
+    <dimen name="margin_top_parking_size_button">20dp</dimen>
+    <dimen name="margin_ok_cancel_button">15dp</dimen>
+    <dimen name="padding_dialog_fragment">15dp</dimen>
+
 </resources>
