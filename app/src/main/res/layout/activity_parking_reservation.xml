@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/parking_wallpaper_car_main"
+    android:padding="@dimen/padding_reservation_activity"
+    tools:context=".activity.ParkingReservationActivity">
+
+    <TextView
+        android:id="@+id/text_parking_reservation_title"
+        style="@style/TextParkingReservationTitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_date_begin"
+        style="@style/TextInputLayoutDateBeginStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/text_parking_reservation_title"
+        app:endIconDrawable="@drawable/ic_calendar"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_date_begin"
+            style="@style/EditDateStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_date_end"
+        style="@style/TextInputLayoutDateEndStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/text_input_layout_date_begin">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_date_end"
+            style="@style/EditDateEndStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_space"
+        style="@style/TextInputLayoutSpaceStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/text_input_layout_date_end">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextSpace"
+            style="@style/EditTextSpaceStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout_code"
+        style="@style/TextInputLayoutCodeStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/text_input_layout_space"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPassword"
+            style="@style/EditTexPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button_parking_reservation_save"
+        style="@style/SaveButtonReservationActivityStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_layout_code" />
+</androidx.constraintlayout.widget.ConstraintLayout>

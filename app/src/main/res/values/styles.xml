@@ -33,4 +33,72 @@
         <item name="android:layout_marginTop">@dimen/margin_top_main_activity_title</item>
     </style>
 
-    </resources>
+    <style name="InputParkingReservationCodeStyle">
+        <item name="android:hint">@string/text_input_layout_hint_code</item>
+        <item name="android:fontFamily">sans-serif-bold</item>
+    </style>
+
+    <style name="InputParkingReservationSpaceStyle">
+        <item name="android:hint">@string/text_input_layout_hint_space</item>
+        <item name="android:inputType">number</item>
+        <item name="android:fontFamily">sans-serif-bold</item>
+    </style>
+
+    <style name="TextParkingReservationTitleStyle">
+        <item name="android:fontFamily">sans-serif-bold</item>
+        <item name="android:textSize">@dimen/size_dialog_parking_size_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_main_activity_title</item>
+        <item name="android:textColor">@color/yellow_main_text</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:text">@string/text_main_activity_parking_reservation_button_label</item>
+    </style>
+
+    <style name="SaveButtonReservationActivityStyle">
+        <item name="android:backgroundTint">@color/orange_parking_size_button_background</item>
+        <item name="android:textColor">@color/dark_parking_size_button_text</item>
+        <item name="android:text">@string/text_button_parking_reservation_save</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_parking_size_button</item>
+    </style>
+
+    <style name="TextInputLayoutDateBeginStyle">
+        <item name="android:layout_margin">@dimen/margin_text_input_layout_reservation_activity</item>
+        <item name="android:hint">@string/text_input_layout_hint_date_begin</item>
+    </style>
+
+    <style name="TextInputLayoutDateEndStyle">
+        <item name="android:layout_margin">@dimen/margin_text_input_layout_reservation_activity</item>
+        <item name="android:hint">@string/text_input_layout_hint_date_end</item>
+    </style>
+
+    <style name="TextInputLayoutSpaceStyle">
+        <item name="android:layout_margin">@dimen/margin_text_input_layout_reservation_activity</item>
+        <item name="android:hint">@string/text_input_layout_hint_space</item>
+    </style>
+
+    <style name="EditTextSpaceStyle">
+        <item name="android:inputType">number</item>
+        <item name="android:maxLines">@integer/input_max_lines</item>
+    </style>
+
+    <style name="TextInputLayoutCodeStyle">
+        <item name="android:layout_margin">@dimen/margin_text_input_layout_reservation_activity</item>
+        <item name="android:hint">@string/text_input_layout_hint_code</item>
+    </style>
+
+    <style name="EditTexPassword">
+        <item name="android:inputType">textPassword</item>
+        <item name="android:maxLines">@integer/input_max_lines</item>
+    </style>
+
+    <style name="EditDateStyle">
+        <item name="android:drawableRight">@drawable/ic_calendar</item>
+        <item name="android:maxLines">@integer/input_max_lines</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="EditDateEndStyle" parent="EditDateStyle">
+        <item name="android:enabled">false</item>
+    </style>
+
+</resources>
