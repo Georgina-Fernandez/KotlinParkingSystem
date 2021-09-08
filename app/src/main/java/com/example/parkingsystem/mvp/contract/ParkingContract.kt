@@ -11,10 +11,12 @@ interface ParkingContract {
     interface Presenter {
         fun onParkingSizeButtonPressed(listener: ParkingDialogListener)
         fun onParkingSizeOkButtonPressed(parkingLots: Int)
+        fun onParkingReservationButtonPressed()
     }
 
     interface View {
         fun showParkingSizeDialog(listener: ParkingDialogListener)
         fun showParkingLots(parkingSize: Int)
+        fun showParkingReservation()
     }
 }

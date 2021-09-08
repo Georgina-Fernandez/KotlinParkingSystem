@@ -16,4 +16,8 @@ class ParkingPresenter(
         model.setParkingSize(parkingLots)
         view.showParkingLots(model.getParkingSize())
     }
+
+    override fun onParkingReservationButtonPressed() {
+        view.showParkingReservation()
+    }
 }

@@ -7,4 +7,13 @@
     <string name="text_parking_size_dialog">Please enter a number between 1 and %1$d</string>
     <string name="button_parking_size_dialog_ok">OK</string>
     <string name="button_parking_size_dialog_cancel">CANCEL</string>
+    <string name="button_parking_reservation_begin">SET</string>
+    <string name="button_parking_reservation_end">SET</string>
+    <string name="text_main_activity_parking_reservation_button_label">Book your parking lot</string>
+    <string name="text_input_layout_hint_date_begin">DATE BEGIN</string>
+    <string name="text_input_layout_hint_date_end">DATE END</string>
+    <string name="text_input_layout_hint_space">SPACE</string>
+    <string name="text_input_layout_hint_code">CODE</string>
+    <string name="text_button_parking_reservation_save">SAVE</string>
+    <string name="toast_parking_reservation_succeed">Thank you for entrusting us with your beloved machine</string>
 </resources>
