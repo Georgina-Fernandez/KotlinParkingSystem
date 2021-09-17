@@ -87,7 +87,7 @@
     </style>
 
     <style name="EditTexPassword">
-        <item name="android:inputType">textPassword</item>
+        <item name="android:inputType">numberPassword</item>
         <item name="android:maxLines">@integer/input_max_lines</item>
     </style>
 

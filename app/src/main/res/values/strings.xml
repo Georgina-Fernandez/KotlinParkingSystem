@@ -15,5 +15,12 @@
     <string name="text_input_layout_hint_space">SPACE</string>
     <string name="text_input_layout_hint_code">CODE</string>
     <string name="text_button_parking_reservation_save">SAVE</string>
+    <string name="toast_parking_space_reservation_reservation_overlapping">We´re sorry, this date and time for this lot is already booked. Please change your selection</string>
     <string name="toast_parking_reservation_succeed">Thank you for entrusting us with your beloved machine</string>
+    <string name="toast_parking_reservation_day_time_start_missing">Please set parking check-in date and time</string>
+    <string name="toast_parking_reservation_day_time_end_missing">Please set parking check-out date and time</string>
+    <string name="toast_parking_reservation_day_time_end_invalid">Please set a parking check-out date later than check-in date</string>
+    <string name="toast_parking_reservation_space_missing">Please insert your selected parking lot</string>
+    <string name="toast_parking_reservation_space_out_of_bound">Please insert a parking lot between 1 and %1$d</string>
+    <string name="toast_parking_reservation_code_missing">Please insert a security code</string>
 </resources>

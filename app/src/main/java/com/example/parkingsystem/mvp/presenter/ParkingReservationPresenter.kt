@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import com.example.parkingsystem.mvp.contract.ParkingReservationContract
 import com.example.parkingsystem.util.Constants
+import com.example.parkingsystem.util.ParkingLotReservationVerify
 
 class ParkingReservationPresenter(
     private val model: ParkingReservationContract.ParkingReservationModel,
@@ -16,8 +17,8 @@ class ParkingReservationPresenter(
     }
 
     override fun onDateSetPressed(year: Int, month: Int, dayOfMonth: Int, timeListener: TimePickerDialog.OnTimeSetListener) {
-        val date = "$dayOfMonth${Constants.SLASH}${month + Constants.ONE}${Constants.SLASH}$year"
-        val formattedDate = model.convertToCalendar(date, Constants.FORMAT_DATE)
+        val formattedDate =
+            model.convertToCalendar("$dayOfMonth${Constants.SLASH}${month + Constants.ONE}${Constants.SLASH}$year", Constants.FORMAT_DATE)
         if (model.getDateBeginPressed()) {
             model.setDateBegin(formattedDate)
         } else {
@@ -27,8 +28,7 @@ class ParkingReservationPresenter(
     }
 
     override fun onTimeSetPressed(hourOfDay: Int, minute: Int) {
-        val time = "$hourOfDay${Constants.TWO_POINTS}$minute"
-        val formattedTime = model.convertToCalendar(time, Constants.FORMAT_TIME)
+        val formattedTime = model.convertToCalendar("$hourOfDay${Constants.TWO_POINTS}$minute", Constants.FORMAT_TIME)
         if (model.getDateBeginPressed()) {
             model.setTimeBegin(formattedTime)
             view.enableDateEnd()
@@ -44,6 +44,26 @@ class ParkingReservationPresenter(
     }
 
     override fun onButtonParkingReservationSavePressed() {
-        view.showOkReservationToast()
+        model.completeReservationInfo(
+            (if (view.getParkingLot().isNotEmpty()) view.getParkingLot().toInt() else Constants.MINUS_ONE),
+            (if (view.getSecurityCode().isNotEmpty()) view.getSecurityCode().toInt() else Constants.MINUS_ONE),
+        )
+        when (model.getReservationVerifyResult()) {
+            ParkingLotReservationVerify.MISSING_PARKING_LOT -> view.showMissingParkingSpace()
+            ParkingLotReservationVerify.MISSING_DATE_BEGIN -> view.showMissingDateTimeStart()
+            ParkingLotReservationVerify.MISSING_DATE_END -> view.showMissingDateTimeEnd()
+            ParkingLotReservationVerify.INVALID_END_DATE -> view.showInvalidDateTimeEnd()
+            ParkingLotReservationVerify.MISSING_CODE -> view.showMissingSecurityCode()
+            ParkingLotReservationVerify.VALID_FIELDS -> {
+                when {
+                    model.getValidReservation() == ParkingLotReservationVerify.OVERLAP_RESERVATION -> view.showReservationOverlapping()
+                    model.parkingLotSizeValidate() == ParkingLotReservationVerify.OUT_OF_BOUND_LOT -> view.showOutOfBoundParkingSpace(model.getParkingLotSize())
+                    else -> {
+                        model.makeReservation(model.getReservation())
+                        view.showOkReservation()
+                    }
+                }
+            }
+        }
     }
 }

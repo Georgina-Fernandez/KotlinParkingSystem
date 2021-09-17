@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.widget.DatePicker
 import android.widget.TimePicker
 import androidx.appcompat.app.AppCompatActivity
+import com.example.parkingsystem.database.ParkingReservationDatabase
 import com.example.parkingsystem.databinding.ActivityParkingReservationBinding
 import com.example.parkingsystem.mvp.contract.ParkingReservationContract
 import com.example.parkingsystem.mvp.model.ParkingReservationModel
@@ -23,7 +24,7 @@ class ParkingReservationActivity : AppCompatActivity(), DatePickerDialog.OnDateS
         binding = ActivityParkingReservationBinding.inflate(layoutInflater)
         setContentView(binding.root)
         presenter = ParkingReservationPresenter(
-            ParkingReservationModel(),
+            ParkingReservationModel(ParkingReservationDatabase),
             ParkingReservationView(this, binding)
         )
         setListeners()
