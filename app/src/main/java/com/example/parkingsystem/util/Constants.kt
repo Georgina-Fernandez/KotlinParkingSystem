@@ -8,4 +8,6 @@ object Constants {
     const val FORMAT_TIME = "HH:mm"
     const val FORMAT_DATE_TIME = "dd/MM/yy HH:mm"
     const val TWO_POINTS = ":"
+    const val MINUS_ONE = -1
+    const val ZERO = 0
 }

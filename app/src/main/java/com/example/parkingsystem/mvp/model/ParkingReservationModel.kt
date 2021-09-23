@@ -1,19 +1,21 @@
 package com.example.parkingsystem.mvp.model
 
+import com.example.parkingsystem.database.ParkingReservationDatabase
+import com.example.parkingsystem.entity.ParkingLotReservation
 import com.example.parkingsystem.mvp.contract.ParkingReservationContract
 import com.example.parkingsystem.util.Constants
 import com.example.parkingsystem.util.DateUtils
+import com.example.parkingsystem.util.ParkingLotReservationValidated
+import com.example.parkingsystem.util.ParkingLotReservationVerify
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class ParkingReservationModel : ParkingReservationContract.ParkingReservationModel {
+class ParkingReservationModel(private val database: ParkingReservationDatabase) :
+    ParkingReservationContract.ParkingReservationModel {
 
     private var isDateBeginPressed = false
-    private lateinit var dateBegin: Calendar
-    private lateinit var timeBegin: Calendar
-    private lateinit var dateEnd: Calendar
-    private lateinit var timeEnd: Calendar
+    private val reservation = ParkingLotReservation()
 
     override fun setDateBeginPressed(isDateBeginPressed: Boolean) {
         this.isDateBeginPressed = isDateBeginPressed
@@ -25,39 +27,63 @@ class ParkingReservationModel : ParkingReservationContract.ParkingReservationMod
         return DateUtils.convertToCalendar(date, SimpleDateFormat(formatGiven, Locale.getDefault()))
     }
 
-    override fun getDateBegin(): Calendar = dateBegin
-
-    override fun getTimeBegin(): Calendar = timeBegin
-
-    override fun getDateEnd(): Calendar = dateEnd
-
-    override fun getTimeEnd(): Calendar = timeEnd
-
     override fun setDateBegin(dateBegin: Calendar) {
-        this.dateBegin = dateBegin
+        reservation.dateStart = dateBegin
     }
 
     override fun setTimeBegin(timeBegin: Calendar) {
-        this.timeBegin = timeBegin
+        reservation.timeStart = timeBegin
     }
 
+
     override fun setDateEnd(dateEnd: Calendar) {
-        this.dateEnd = dateEnd
+        reservation.dateEnd = dateEnd
     }
 
     override fun setTimeEnd(timeEnd: Calendar) {
-        this.timeEnd = timeEnd
+        reservation.timeEnd = timeEnd
     }
 
-    override fun getFormattedString(date: Calendar, time: Calendar): String {
-        val dateTime = Calendar.getInstance()
-        dateTime.set(
-            date.get(Calendar.YEAR),
-            date.get(Calendar.MONTH),
-            date.get(Calendar.DAY_OF_MONTH),
-            time.get(Calendar.HOUR),
-            time.get(Calendar.MINUTE)
-        )
-        return DateUtils.convertToString(dateTime, SimpleDateFormat(Constants.FORMAT_DATE_TIME, Locale.getDefault()))
+    override fun getDateBegin(): Calendar = reservation.dateStart
+
+    override fun getTimeBegin(): Calendar = reservation.timeStart
+
+    override fun getDateEnd(): Calendar = reservation.dateEnd
+
+    override fun getTimeEnd(): Calendar = reservation.timeEnd
+
+    override fun getParkingLot(): Int = reservation.parkingLot
+
+    override fun getSecurityCode(): Int = reservation.securityCode
+
+    override fun getFormattedString(date: Calendar, time: Calendar): String = reservation.getFormattedString(date, time)
+
+    override fun getParkingLotSize() = ParkingReservationDatabase.getParkingLotSize()
+
+    override fun getReservation(): ParkingLotReservation = reservation
+
+    override fun completeReservationInfo(parkingLot: Int, securityCode: Int) {
+        reservation.parkingLot = parkingLot
+        reservation.securityCode = securityCode
+    }
+
+    override fun getReservationVerifyResult(): ParkingLotReservationVerify =
+        reservation.getReservationVerifyResult()
+
+    override fun getValidReservation(): ParkingLotReservationVerify =
+        if (ParkingLotReservationValidated(database).canBeReserved(reservation)) {
+            ParkingLotReservationVerify.SUCCESS
+        } else {
+            ParkingLotReservationVerify.OVERLAP_RESERVATION
+        }
+
+    override fun parkingLotSizeValidate(): ParkingLotReservationVerify = if (getParkingLotSize() < reservation.parkingLot) {
+        ParkingLotReservationVerify.OUT_OF_BOUND_LOT
+    } else {
+        ParkingLotReservationVerify.SUCCESS
+    }
+
+    override fun makeReservation(reservation: ParkingLotReservation) {
+        ParkingReservationDatabase.addReservation(reservation)
     }
 }

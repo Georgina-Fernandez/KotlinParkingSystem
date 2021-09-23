@@ -2,6 +2,7 @@ package com.example.parkingsystem.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.parkingsystem.database.ParkingReservationDatabase
 import com.example.parkingsystem.databinding.ActivityMainBinding
 import com.example.parkingsystem.listener.ParkingDialogListener
 import com.example.parkingsystem.mvp.contract.ParkingContract
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity(), ParkingDialogListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        presenter = ParkingPresenter(ParkingModel(), ParkingView(this))
+        presenter = ParkingPresenter(ParkingModel(ParkingReservationDatabase), ParkingView(this))
         setListener()
     }
 
