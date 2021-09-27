@@ -23,4 +23,6 @@
     <string name="toast_parking_reservation_space_missing">Please insert your selected parking lot</string>
     <string name="toast_parking_reservation_space_out_of_bound">Please insert a parking lot between 1 and %1$d</string>
     <string name="toast_parking_reservation_code_missing">Please insert a security code</string>
+    <string name="text_main_activity_clear_expired_reservation_button_label">Clear expired reservations</string>
+    <string name="toast_main_activity_clear_expired_reservation">Total of removed expired reservations: %1$d</string>
 </resources>

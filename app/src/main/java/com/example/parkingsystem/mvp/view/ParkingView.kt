@@ -26,6 +26,12 @@ class ParkingView(activity: Activity) : ParkingContract.View, ActivityView(activ
         activity?.startActivity(context?.let { ParkingReservationActivity.getIntent(it) })
     }
 
+    override fun showClearExpiredReservationToast(expiredReservations: Int) {
+        context?.let {
+            it.showToast(it.getString(R.string.toast_main_activity_clear_expired_reservation, expiredReservations))
+        }
+    }
+
 
     companion object {
         const val TAG_PARKING_DIALOG_VIEW = "TAG_PARKING_DIALOG_VIEW"

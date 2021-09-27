@@ -10,4 +10,10 @@ class ParkingModel(private val database: ParkingReservationDatabase) : ParkingCo
     override fun setParkingSize(parkingLotSize: Int) {
         this.database.setParkingLotSize(parkingLotSize)
     }
+
+    override fun clearExpiredReservation() {
+        database.clearExpiredReservation()
+    }
+
+    override fun getRemovedExpiredReservations(): Int = this.database.getRemovedExpiredReservations()
 }
