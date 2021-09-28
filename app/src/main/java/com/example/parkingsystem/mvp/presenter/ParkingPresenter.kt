@@ -18,6 +18,7 @@ class ParkingPresenter(
     }
 
     override fun onParkingReservationButtonPressed() {
+        onClearExpiredReservationPressed()
         view.showParkingReservation()
     }
 
