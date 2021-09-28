@@ -100,5 +100,24 @@
     <style name="EditDateEndStyle" parent="EditDateStyle">
         <item name="android:enabled">false</item>
     </style>
-
+    <style name="ReservationListStyle">
+        <item name="android:textColor">@color/yellow_main_text</item>
+        <item name="android:textSize">@dimen/size_reservation_list_style</item>
+        <item name="android:fontFamily">sans-serif-bold</item>
+    </style>
+    <style name="SecurityCodeStyle" parent="ReservationListStyle">
+        <item name="passwordToggleEnabled">true</item>
+    </style>
+    <style name="ReservationItemStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/size_reservation_item_style</item>
+        <item name="android:fontFamily">sans-serif-bold</item>
+    </style>
+    <style name="ReservationListTitle" parent="TitleMainActivityStyle">
+        <item name="android:textColor">@color/orange_parking_size_button_background</item>
+    </style>
+    <style name="ReservationListHolderStyle">
+        <item name="android:padding">@dimen/padding_reservation_activity</item>
+        <item name="android:background">@color/black_holder</item>
+    </style>
 </resources>

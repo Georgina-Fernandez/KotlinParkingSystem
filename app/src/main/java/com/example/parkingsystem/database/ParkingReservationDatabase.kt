@@ -30,16 +30,15 @@ object ParkingReservationDatabase {
         this.parkingLotSize = parkingSize
     }
 
-
     fun clearExpiredReservation() {
-        var totalReservations = getAllReservations().size
+        val totalReservations = getAllReservations().size
         hashMapReservation.forEach { (reservation, _) ->
-            hashMapReservation[reservation]?.removeAll { reservation ->reservation.dateEnd.before(Calendar.getInstance())}
+            hashMapReservation[reservation]?.removeAll { parkingReservation ->parkingReservation.dateEnd.before(Calendar.getInstance())}
         }
         setRemovedExpiredReservations(totalReservations - getAllReservations().size)
     }
 
-    private fun getAllReservations(): List<ParkingLotReservation> = hashMapReservation.flatMap { (_, values) -> values }
+    fun getAllReservations(): List<ParkingLotReservation> = hashMapReservation.flatMap { (_, values) -> values }
 
     fun getRemovedExpiredReservations(): Int = expiredReservations
 
@@ -47,4 +46,3 @@ object ParkingReservationDatabase {
         this.expiredReservations = expiredReservations
     }
 }
-
