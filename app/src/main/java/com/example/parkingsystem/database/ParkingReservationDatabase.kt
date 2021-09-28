@@ -2,10 +2,13 @@ package com.example.parkingsystem.database
 
 import com.example.parkingsystem.entity.ParkingLotReservation
 import com.example.parkingsystem.util.Constants
+import java.util.Calendar
+import kotlin.collections.HashMap
 
 object ParkingReservationDatabase {
     val hashMapReservation: MutableMap<Int, MutableList<ParkingLotReservation>> = HashMap()
     private var parkingLotSize: Int = Constants.ZERO
+    private var expiredReservations: Int = Constants.ZERO
 
     fun addReservation(reservation: ParkingLotReservation) {
         var reservations = mutableListOf<ParkingLotReservation>()
@@ -25,6 +28,23 @@ object ParkingReservationDatabase {
 
     fun setParkingLotSize(parkingSize: Int) {
         this.parkingLotSize = parkingSize
+    }
+
+
+    fun clearExpiredReservation() {
+        var totalReservations = getAllReservations().size
+        hashMapReservation.forEach { (reservation, _) ->
+            hashMapReservation[reservation]?.removeAll { reservation ->reservation.dateEnd.before(Calendar.getInstance())}
+        }
+        setRemovedExpiredReservations(totalReservations - getAllReservations().size)
+    }
+
+    private fun getAllReservations(): List<ParkingLotReservation> = hashMapReservation.flatMap { (_, values) -> values }
+
+    fun getRemovedExpiredReservations(): Int = expiredReservations
+
+    private fun setRemovedExpiredReservations(expiredReservations: Int) {
+        this.expiredReservations = expiredReservations
     }
 }
 

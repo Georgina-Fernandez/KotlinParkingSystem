@@ -6,17 +6,21 @@ interface ParkingContract {
     interface Model {
         fun getParkingSize(): Int
         fun setParkingSize(parkingLots: Int)
+        fun clearExpiredReservation()
+        fun getRemovedExpiredReservations(): Int
     }
 
     interface Presenter {
         fun onParkingSizeButtonPressed(listener: ParkingDialogListener)
         fun onParkingSizeOkButtonPressed(parkingLots: Int)
         fun onParkingReservationButtonPressed()
+        fun onClearExpiredReservationPressed()
     }
 
     interface View {
         fun showParkingSizeDialog(listener: ParkingDialogListener)
         fun showParkingLots(parkingSize: Int)
         fun showParkingReservation()
+        fun showClearExpiredReservationToast(expiredReservations: Int)
     }
 }

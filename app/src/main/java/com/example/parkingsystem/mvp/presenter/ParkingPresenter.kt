@@ -20,4 +20,9 @@ class ParkingPresenter(
     override fun onParkingReservationButtonPressed() {
         view.showParkingReservation()
     }
+
+    override fun onClearExpiredReservationPressed() {
+        model.clearExpiredReservation()
+        view.showClearExpiredReservationToast(model.getRemovedExpiredReservations())
+    }
 }

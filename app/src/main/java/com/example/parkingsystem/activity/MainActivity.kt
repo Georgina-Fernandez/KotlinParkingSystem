@@ -23,8 +23,9 @@ class MainActivity : AppCompatActivity(), ParkingDialogListener {
     }
 
     private fun setListener() {
-        binding.parkingSizeButton.setOnClickListener {presenter.onParkingSizeButtonPressed(this)}
-        binding.buttonMainParkingReservation.setOnClickListener {presenter.onParkingReservationButtonPressed() }
+        binding.parkingSizeButton.setOnClickListener { presenter.onParkingSizeButtonPressed(this) }
+        binding.buttonMainParkingReservation.setOnClickListener { presenter.onParkingReservationButtonPressed() }
+        binding.clearExpiredReservationButton.setOnClickListener { presenter.onClearExpiredReservationPressed() }
     }
 
     override fun onFragmentDialogOkClick(parkingLots: Int) {

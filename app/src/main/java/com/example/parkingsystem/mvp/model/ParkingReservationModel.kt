@@ -3,7 +3,6 @@ package com.example.parkingsystem.mvp.model
 import com.example.parkingsystem.database.ParkingReservationDatabase
 import com.example.parkingsystem.entity.ParkingLotReservation
 import com.example.parkingsystem.mvp.contract.ParkingReservationContract
-import com.example.parkingsystem.util.Constants
 import com.example.parkingsystem.util.DateUtils
 import com.example.parkingsystem.util.ParkingLotReservationValidated
 import com.example.parkingsystem.util.ParkingLotReservationVerify
@@ -34,7 +33,6 @@ class ParkingReservationModel(private val database: ParkingReservationDatabase) 
     override fun setTimeBegin(timeBegin: Calendar) {
         reservation.timeStart = timeBegin
     }
-
 
     override fun setDateEnd(dateEnd: Calendar) {
         reservation.dateEnd = dateEnd
