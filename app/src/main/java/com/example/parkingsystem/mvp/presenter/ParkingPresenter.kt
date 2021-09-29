@@ -26,4 +26,8 @@ class ParkingPresenter(
         model.clearExpiredReservation()
         view.showClearExpiredReservationToast(model.getRemovedExpiredReservations())
     }
+
+    override fun onReservationListPressed() {
+        view.showReservationList()
+    }
 }

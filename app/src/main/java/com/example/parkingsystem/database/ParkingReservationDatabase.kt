@@ -38,7 +38,7 @@ object ParkingReservationDatabase {
         setRemovedExpiredReservations(totalReservations - getAllReservations().size)
     }
 
-    private fun getAllReservations(): List<ParkingLotReservation> = hashMapReservation.flatMap { (_, values) -> values }
+    fun getAllReservations(): List<ParkingLotReservation> = hashMapReservation.flatMap { (_, values) -> values }
 
     fun getRemovedExpiredReservations(): Int = expiredReservations
 

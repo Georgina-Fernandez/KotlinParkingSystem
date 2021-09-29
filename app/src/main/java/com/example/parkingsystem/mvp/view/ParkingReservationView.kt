@@ -8,7 +8,6 @@ import com.example.parkingsystem.R
 import com.example.parkingsystem.databinding.ActivityParkingReservationBinding
 import com.example.parkingsystem.mvp.contract.ParkingReservationContract
 import com.example.parkingsystem.mvp.view.base.ActivityView
-import com.example.parkingsystem.util.Constants
 import com.example.parkingsystem.util.showToast
 import java.util.Calendar.getInstance
 

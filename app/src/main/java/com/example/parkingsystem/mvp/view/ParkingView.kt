@@ -3,6 +3,7 @@ package com.example.parkingsystem.mvp.view
 import android.app.Activity
 import com.example.parkingsystem.R
 import com.example.parkingsystem.activity.ParkingReservationActivity
+import com.example.parkingsystem.activity.ReservationListActivity
 import com.example.parkingsystem.fragment.ParkingSizeDialogFragment
 import com.example.parkingsystem.listener.ParkingDialogListener
 import com.example.parkingsystem.mvp.contract.ParkingContract
@@ -30,6 +31,10 @@ class ParkingView(activity: Activity) : ParkingContract.View, ActivityView(activ
         context?.let {
             it.showToast(it.getString(R.string.toast_main_activity_clear_expired_reservation, expiredReservations))
         }
+    }
+
+    override fun showReservationList() {
+        activity?.startActivity(context?.let{(ReservationListActivity.getIntent(it))})
     }
 
 

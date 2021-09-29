@@ -8,4 +8,6 @@
     <dimen name="padding_dialog_fragment">15dp</dimen>
     <dimen name="padding_reservation_activity">15dp</dimen>
     <dimen name="margin_text_input_layout_reservation_activity">10dp</dimen>
+    <dimen name="size_reservation_list_style">20sp</dimen>
+    <dimen name="size_reservation_item_style">30sp</dimen>
 </resources>
