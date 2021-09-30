@@ -11,7 +11,7 @@ class ParkingSizeDialogPresenter(private val view: ParkingDialogContract.Parking
         val parkingSize = view.getParkingLots()
         val parkingSizeInt = parkingSize.toInt()
 
-        if (parkingSize.isNotEmpty() && parkingSizeInt < Constants.PARKING_SIZE_MAX) {
+        if (parkingSize.isNotEmpty() && parkingSizeInt < Constants.PARKING_SIZE_MAX && parkingSizeInt > Constants.ZERO) {
             view.showParkingLots(parkingSizeInt, listener)
         } else {
             view.showErrorToastInput()

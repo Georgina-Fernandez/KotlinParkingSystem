@@ -10,7 +10,6 @@
         style="@style/ReservationItemStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_reservation_list_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
     <TextView
@@ -18,7 +17,6 @@
         style="@style/ReservationListStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_reservation_list_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_reservation_list"/>
     <TextView
@@ -26,7 +24,6 @@
         style="@style/ReservationListStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_reservation_list_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_parking_space_reservation_list"/>
     <TextView
@@ -34,7 +31,6 @@
         style="@style/ReservationListStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_reservation_list_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_date_time_start_reservation_list"/>
 
@@ -43,7 +39,6 @@
         style="@style/SecurityCodeStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_reservation_list_title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_date_time_end_reservation_list"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

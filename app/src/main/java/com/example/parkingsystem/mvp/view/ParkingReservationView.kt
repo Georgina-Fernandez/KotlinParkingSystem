@@ -8,7 +8,7 @@ import com.example.parkingsystem.R
 import com.example.parkingsystem.databinding.ActivityParkingReservationBinding
 import com.example.parkingsystem.mvp.contract.ParkingReservationContract
 import com.example.parkingsystem.mvp.view.base.ActivityView
-import com.example.parkingsystem.util.showToast
+import com.example.parkingsystem.parkingAlertDialog.ParkingCustomAlertDialog
 import java.util.Calendar.getInstance
 
 class ParkingReservationView(activity: Activity, private val binding: ActivityParkingReservationBinding) :
@@ -44,7 +44,7 @@ class ParkingReservationView(activity: Activity, private val binding: ActivityPa
         binding.editDateEnd.setText(dateTime)
     }
 
-    override fun getParkingLot(): String =binding.editTextSpace.text.toString()
+    override fun getParkingLot(): String = binding.editTextSpace.text.toString()
 
     override fun getSecurityCode(): String = binding.editTextPassword.text.toString()
 
@@ -54,50 +54,91 @@ class ParkingReservationView(activity: Activity, private val binding: ActivityPa
 
     override fun showMissingDateTimeStart() {
         context?.let {
-            it.showToast(it.getString(R.string.toast_parking_reservation_day_time_start_missing))
+                ParkingCustomAlertDialog(it).showAlertDialog(
+                    it,
+                    it.getString(R.string.title_validation_warning),
+                    it.getString(R.string.text_parking_reservation_day_time_start_missing)
+                )
+        }
+    }
+
+    override fun showExpiredDateTimeStart() {
+        context?.let {
+            ParkingCustomAlertDialog(it).showAlertDialog(
+                it,
+                it.getString(R.string.title_validation_warning),
+                it.getString(R.string.text_parking_reservation_day_time_start_expired)
+            )
         }
     }
 
     override fun showMissingDateTimeEnd() {
         context?.let {
-            it.showToast(it.getString(R.string.toast_parking_reservation_day_time_end_missing))
+            ParkingCustomAlertDialog(it).showAlertDialog(
+                it,
+                it.getString(R.string.title_validation_warning),
+                it.getString(R.string.text_parking_reservation_day_time_end_missing)
+            )
         }
     }
 
     override fun showInvalidDateTimeEnd() {
         context?.let {
-            it.showToast(it.getString(R.string.toast_parking_reservation_day_time_end_invalid))
+            ParkingCustomAlertDialog(it).showAlertDialog(
+                it,
+                it.getString(R.string.title_validation_warning),
+                it.getString(R.string.text_parking_reservation_day_time_end_invalid)
+            )
         }
     }
 
     override fun showMissingParkingSpace() {
         context?.let {
-            it.showToast(it.getString(R.string.toast_parking_reservation_space_missing))
+            ParkingCustomAlertDialog(it).showAlertDialog(
+                it,
+                it.getString(R.string.title_validation_warning),
+                it.getString(R.string.text_parking_reservation_space_missing)
+            )
         }
     }
 
     override fun showOutOfBoundParkingSpace(parkingLot: Int) {
         context?.let {
-            it.showToast(it.getString(R.string.toast_parking_reservation_space_out_of_bound,parkingLot))
+            ParkingCustomAlertDialog(it).showAlertDialog(
+                it,
+                it.getString(R.string.title_validation_warning),
+                it.getString(R.string.text_parking_reservation_space_out_of_bound, parkingLot)
+            )
         }
     }
 
     override fun showMissingSecurityCode() {
         context?.let {
-            it.showToast(it.getString(R.string.toast_parking_reservation_code_missing))
+            ParkingCustomAlertDialog(it).showAlertDialog(
+                it,
+                it.getString(R.string.title_validation_warning),
+                it.getString(R.string.text_parking_reservation_code_missing)
+            )
         }
     }
 
     override fun showReservationOverlapping() {
         context?.let {
-            it.showToast(it.getString(R.string.toast_parking_space_reservation_reservation_overlapping))
+            ParkingCustomAlertDialog(it).showAlertDialog(
+                it,
+                it.getString(R.string.title_validation_warning),
+                it.getString(R.string.text_parking_space_reservation_reservation_overlapping)
+            )
         }
     }
 
     override fun showOkReservation() {
         context?.let {
-            it.showToast(it.getString(R.string.toast_parking_reservation_succeed))
+            ParkingCustomAlertDialog(it).showAlertDialog(
+                it,
+                it.getString(R.string.title_validation_ok),
+                it.getString(R.string.text_parking_reservation_succeed)
+            ) { activity?.finish() }
         }
-        activity?.finish()
     }
 }

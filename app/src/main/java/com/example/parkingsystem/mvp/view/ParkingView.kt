@@ -8,6 +8,7 @@ import com.example.parkingsystem.fragment.ParkingSizeDialogFragment
 import com.example.parkingsystem.listener.ParkingDialogListener
 import com.example.parkingsystem.mvp.contract.ParkingContract
 import com.example.parkingsystem.mvp.view.base.ActivityView
+import com.example.parkingsystem.parkingAlertDialog.ParkingCustomAlertDialog
 import com.example.parkingsystem.util.showToast
 
 class ParkingView(activity: Activity) : ParkingContract.View, ActivityView(activity) {

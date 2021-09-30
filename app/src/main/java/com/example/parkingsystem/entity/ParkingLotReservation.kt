@@ -18,6 +18,7 @@ class ParkingLotReservation {
     fun getReservationVerifyResult(): ParkingLotReservationVerify =
         when {
             !::dateStart.isInitialized -> ParkingLotReservationVerify.MISSING_DATE_BEGIN
+            getDateAndTimeStart().before(Calendar.getInstance()) -> ParkingLotReservationVerify.EXPIRED_DATE_BEGIN
             !::dateEnd.isInitialized -> ParkingLotReservationVerify.MISSING_DATE_END
             dateEnd.before(dateStart) -> ParkingLotReservationVerify.INVALID_END_DATE
             parkingLot == Constants.MINUS_ONE -> ParkingLotReservationVerify.MISSING_PARKING_LOT
