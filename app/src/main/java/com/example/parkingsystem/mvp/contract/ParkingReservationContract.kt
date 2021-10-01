@@ -56,5 +56,6 @@ interface ParkingReservationContract {
         fun showReservationOverlapping()
         fun showOkReservation()
         fun showInvalidDateTimeEnd()
+        fun showExpiredDateTimeStart()
     }
 }

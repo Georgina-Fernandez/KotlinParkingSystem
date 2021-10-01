@@ -7,8 +7,8 @@ import com.example.parkingsystem.databinding.ParkingSizeDialogBinding
 import com.example.parkingsystem.listener.ParkingDialogListener
 import com.example.parkingsystem.mvp.contract.ParkingDialogContract
 import com.example.parkingsystem.mvp.view.base.DialogFragmentView
+import com.example.parkingsystem.parkingAlertDialog.ParkingCustomAlertDialog
 import com.example.parkingsystem.util.Constants
-import com.example.parkingsystem.util.showToast
 
 class ParkingSizeDialogView(fragment: Fragment, private val binding: ParkingSizeDialogBinding) :
     DialogFragmentView(fragment), ParkingDialogContract.ParkingSizeDialogFragmentView {
@@ -38,7 +38,11 @@ class ParkingSizeDialogView(fragment: Fragment, private val binding: ParkingSize
     override fun showErrorToastInput() {
         clearInput()
         context?.let {
-            it.showToast(it.getString(R.string.toast_parking_dialog_error_input))
+                ParkingCustomAlertDialog(it).showAlertDialog(
+                    it,
+                    it.getString(R.string.title_validation_warning),
+                    it.getString(R.string.text_parking_dialog_error_input)
+                )
         }
     }
 }

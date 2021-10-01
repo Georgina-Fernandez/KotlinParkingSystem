@@ -33,7 +33,7 @@ object ParkingReservationDatabase {
     fun clearExpiredReservation() {
         val totalReservations = getAllReservations().size
         hashMapReservation.forEach { (reservation, _) ->
-            hashMapReservation[reservation]?.removeAll { parkingReservation ->parkingReservation.dateEnd.before(Calendar.getInstance())}
+            hashMapReservation[reservation]?.removeAll { parkingReservation ->parkingReservation.getDateAndTimeEnd().before(Calendar.getInstance())}
         }
         setRemovedExpiredReservations(totalReservations - getAllReservations().size)
     }

@@ -51,6 +51,7 @@ class ParkingReservationPresenter(
         when (model.getReservationVerifyResult()) {
             ParkingLotReservationVerify.MISSING_PARKING_LOT -> view.showMissingParkingSpace()
             ParkingLotReservationVerify.MISSING_DATE_BEGIN -> view.showMissingDateTimeStart()
+            ParkingLotReservationVerify.EXPIRED_DATE_BEGIN ->view.showExpiredDateTimeStart()
             ParkingLotReservationVerify.MISSING_DATE_END -> view.showMissingDateTimeEnd()
             ParkingLotReservationVerify.INVALID_END_DATE -> view.showInvalidDateTimeEnd()
             ParkingLotReservationVerify.MISSING_CODE -> view.showMissingSecurityCode()
