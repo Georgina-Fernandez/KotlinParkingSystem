@@ -34,7 +34,7 @@ class ParkingView(activity: Activity) : ParkingContract.View, ActivityView(activ
         }
     }
 
-    override fun showReservationList() {
+    override fun openReservationList() {
         activity?.startActivity(context?.let{(ReservationListActivity.getIntent(it))})
     }
 

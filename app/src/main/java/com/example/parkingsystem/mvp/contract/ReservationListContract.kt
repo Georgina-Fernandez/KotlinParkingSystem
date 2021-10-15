@@ -5,7 +5,7 @@ import com.example.parkingsystem.entity.ParkingLotReservation
 interface ReservationListContract {
 
     interface ReservationListPresenter {
-        fun reservationsList()
+        fun getReservationsList()
     }
 
     interface ReservationListModel {
@@ -13,6 +13,6 @@ interface ReservationListContract {
     }
 
     interface ReservationListView {
-        fun reservationsList(reservations: List<ParkingLotReservation>)
+        fun showReservationsList(reservations: List<ParkingLotReservation>)
     }
 }

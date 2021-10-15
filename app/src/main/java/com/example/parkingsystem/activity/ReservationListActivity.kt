@@ -20,7 +20,9 @@ class ReservationListActivity : AppCompatActivity() {
         binding = ActivityReservationListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         presenter = ReservationListPresenter(ReservationListModel(ParkingReservationDatabase), ReservationListView(this, binding))
+        presenter.getReservationsList()
     }
+
 
     companion object {
         fun getIntent(context: Context) = Intent(context, ReservationListActivity::class.java)

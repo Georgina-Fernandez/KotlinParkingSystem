@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class ParkingLotReservation {
+open class ParkingLotReservation {
     lateinit var dateStart: Calendar
     lateinit var timeStart: Calendar
     lateinit var dateEnd: Calendar
@@ -15,10 +15,10 @@ class ParkingLotReservation {
     var parkingLot: Int = Constants.MINUS_ONE
     var securityCode: Int = Constants.MINUS_ONE
 
-    fun getReservationVerifyResult(): ParkingLotReservationVerify =
+    open fun getReservationVerifyResult(): ParkingLotReservationVerify =
         when {
             !::dateStart.isInitialized -> ParkingLotReservationVerify.MISSING_DATE_BEGIN
-            getDateAndTimeStart().before(Calendar.getInstance()) -> ParkingLotReservationVerify.EXPIRED_DATE_BEGIN
+            dateStart.before(Calendar.getInstance()) -> ParkingLotReservationVerify.EXPIRED_DATE_BEGIN
             !::dateEnd.isInitialized -> ParkingLotReservationVerify.MISSING_DATE_END
             dateEnd.before(dateStart) -> ParkingLotReservationVerify.INVALID_END_DATE
             parkingLot == Constants.MINUS_ONE -> ParkingLotReservationVerify.MISSING_PARKING_LOT
