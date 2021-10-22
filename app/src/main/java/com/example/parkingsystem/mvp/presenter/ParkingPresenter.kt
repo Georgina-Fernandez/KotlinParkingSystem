@@ -28,6 +28,6 @@ class ParkingPresenter(
     }
 
     override fun onReservationListPressed() {
-        view.showReservationList()
+        view.openReservationList()
     }
 }

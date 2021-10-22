@@ -10,4 +10,5 @@ object Constants {
     const val TWO_POINTS = ":"
     const val MINUS_ONE = -1
     const val ZERO = 0
+    const val PARKING_LOTS = 5
 }

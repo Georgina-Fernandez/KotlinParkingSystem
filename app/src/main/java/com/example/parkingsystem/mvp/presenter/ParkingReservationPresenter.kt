@@ -18,7 +18,7 @@ class ParkingReservationPresenter(
 
     override fun onDateSetPressed(year: Int, month: Int, dayOfMonth: Int, timeListener: TimePickerDialog.OnTimeSetListener) {
         val formattedDate =
-            model.convertToCalendar("$dayOfMonth${Constants.SLASH}${month + Constants.ONE}${Constants.SLASH}$year", Constants.FORMAT_DATE)
+            model.convertToCalendar("$dayOfMonth${Constants.SLASH}${month + Constants.ONE}${Constants.SLASH}$year",Constants.FORMAT_DATE)
         if (model.getDateBeginPressed()) {
             model.setDateBegin(formattedDate)
         } else {
@@ -28,7 +28,7 @@ class ParkingReservationPresenter(
     }
 
     override fun onTimeSetPressed(hourOfDay: Int, minute: Int) {
-        val formattedTime = model.convertToCalendar("$hourOfDay${Constants.TWO_POINTS}$minute", Constants.FORMAT_TIME)
+        val formattedTime = model.convertToCalendar("$hourOfDay${Constants.TWO_POINTS}$minute",Constants.FORMAT_TIME)
         if (model.getDateBeginPressed()) {
             model.setTimeBegin(formattedTime)
             view.enableDateEnd()

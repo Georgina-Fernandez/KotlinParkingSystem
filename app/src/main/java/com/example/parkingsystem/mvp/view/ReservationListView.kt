@@ -10,7 +10,7 @@ import com.example.parkingsystem.mvp.view.base.ActivityView
 
 class ReservationListView(activity: Activity, private val binding: ActivityReservationListBinding) : ActivityView(activity),
     ReservationListContract.ReservationListView {
-    override fun reservationsList(reservations: List<ParkingLotReservation>) {
+    override fun showReservationsList(reservations: List<ParkingLotReservation>) {
         with(binding.recyclerViewReservationList) {
             adapter = ReservationListAdapter(reservations)
             layoutManager = LinearLayoutManager(activity)

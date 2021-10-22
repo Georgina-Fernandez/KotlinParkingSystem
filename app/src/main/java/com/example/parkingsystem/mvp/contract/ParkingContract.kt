@@ -23,6 +23,6 @@ interface ParkingContract {
         fun showParkingLots(parkingSize: Int)
         fun showParkingReservation()
         fun showClearExpiredReservationToast(expiredReservations: Int)
-        fun showReservationList()
+        fun openReservationList()
     }
 }
